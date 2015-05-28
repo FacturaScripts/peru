@@ -4,7 +4,7 @@
    function show_nuevo_cliente()
    {
       $("#modal_nuevo_cliente").modal('show');
-      document.f_nuevo_cliente.nombre.focus();
+      document.f_nuevo_cliente.cli_codgrupo.focus();
    }
    function show_grupos()
    {
@@ -14,6 +14,20 @@
    {
       if( confirm("¿Realmente desea eliminar el grupo "+cod+"?") )
          window.location.href = '{$fsc->url()}&delete_grupo='+cod+'#grupos';
+   }
+   function grupo_onchange()
+   {
+      if(document.f_nuevo_cliente.cli_codgrupo.selectedIndex == 0)
+      {
+         $("#datos_grupo_2").hide();
+         $("#datos_grupo_1").show();
+      }
+      else
+      {
+         $("#datos_grupo_1").hide();
+         $("#datos_grupo_2").show();
+         document.f_nuevo_cliente.nombrecomercial.value = '';
+      }
    }
    $(document).ready(function() {
       document.f_custom_search.query.focus();
@@ -256,7 +270,7 @@
                <div class="form-group">
                   <label for="cli_codgrupo" class="col-lg-2 col-md-2 col-sm-2 control-label">Grupo</label>
                   <div class="col-lg-10 col-md-10 col-sm-10">
-                     <select name="cli_codgrupo" class="form-control">
+                     <select name="cli_codgrupo" class="form-control" onchange="grupo_onchange()">
                      {loop="$fsc->grupos"}
                         <option value="{$value->codgrupo}">{$value->nombre}</option>
                      {/loop}
@@ -264,24 +278,34 @@
                   </div>
                </div>
                {/if}
-               <div class="form-group">
-                  <label for="nombre" class="col-lg-2 col-md-2 col-sm-2 control-label">Nombre</label>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                     <input class="form-control" type="text" name="nombre" autocomplete="off"/>
-                  </div>
-                  <label for="nombre2" class="col-lg-2 col-md-2 col-sm-2 control-label">2º Nombre</label>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                     <input class="form-control" type="text" name="nombre2" autocomplete="off"/>
+               <div id="datos_grupo_1">
+                  <div class="form-group">
+                     <label for="nombrecomercial" class="col-lg-2 col-md-2 col-sm-2 control-label">Nombre</label>
+                     <div class="col-lg-10 col-md-10 col-sm-10">
+                        <input class="form-control" type="text" name="nombrecomercial" autocomplete="off"/>
+                     </div>
                   </div>
                </div>
-               <div class="form-group">
-                  <label for="apellido" class="col-lg-2 col-md-2 col-sm-2 control-label">Apellido</label>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                     <input class="form-control" type="text" name="apellido" autocomplete="off"/>
+               <div id="datos_grupo_2" style="display: none;">
+                  <div class="form-group">
+                     <label for="nombre" class="col-lg-2 col-md-2 col-sm-2 control-label">Nombre</label>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input class="form-control" type="text" name="nombre" autocomplete="off"/>
+                     </div>
+                     <label for="nombre2" class="col-lg-2 col-md-2 col-sm-2 control-label">2º Nombre</label>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input class="form-control" type="text" name="nombre2" autocomplete="off"/>
+                     </div>
                   </div>
-                  <label for="apellido2" class="col-lg-2 col-md-2 col-sm-2 control-label">2º Apellido</label>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                     <input class="form-control" type="text" name="apellido2" autocomplete="off"/>
+                  <div class="form-group">
+                     <label for="apellido" class="col-lg-2 col-md-2 col-sm-2 control-label">Apellido</label>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input class="form-control" type="text" name="apellido" autocomplete="off"/>
+                     </div>
+                     <label for="apellido2" class="col-lg-2 col-md-2 col-sm-2 control-label">2º Apellido</label>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input class="form-control" type="text" name="apellido2" autocomplete="off"/>
+                     </div>
                   </div>
                </div>
                <div class="form-group">
