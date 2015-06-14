@@ -130,13 +130,13 @@ class ventas_clientes extends fs_controller
             $cliente->codgrupo = $_POST['cli_codgrupo'];
          }
          
-         if($_POST['nombrecomercial'] != '')
+         if($_POST['razonsocial'] != '')
          {
-            $cliente->nombre = $cliente->nombrecomercial = $_POST['nombrecomercial'];
+            $cliente->nombre = $cliente->razonsocial = $_POST['razonsocial'];
          }
          else
          {
-            $cliente->nombre = $cliente->nombrecomercial = $_POST['nombre'].' '.$_POST['nombre2'].' '.$_POST['apellido'].' '.$_POST['apellido2'];
+            $cliente->nombre = $cliente->razonsocial = $_POST['nombre'].' '.$_POST['nombre2'].' '.$_POST['apellido'].' '.$_POST['apellido2'];
          }
          
          $cliente->cifnif = $_POST['cifnif'];
