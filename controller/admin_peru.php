@@ -19,6 +19,7 @@
  */
 
 require_model('divisa.php');
+require_model('impuesto.php');
 require_model('pais.php');
 
 /**
@@ -76,6 +77,23 @@ class admin_peru extends fs_controller
             {
                $this->new_message('Datos guardados correctamente.');
             }
+         }
+         else if($_GET['opcion'] == 'impuestos')
+         {
+            /// elimino todos los impuestos
+            $impuesto = new impuesto();
+            foreach($impuesto->all() as $imp)
+            {
+               $imp->delete();
+            }
+            
+            /// añadimos el IGV 18%
+            $impuesto->codimpuesto = 'IGV';
+            $impuesto->descripcion = 'IGV 18%';
+            $impuesto->iva = 18;
+            $impuesto->save();
+            
+            $this->new_message('Impuestos modificados correctamente.');
          }
       }
    }

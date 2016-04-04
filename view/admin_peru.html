@@ -4,23 +4,39 @@
    <div class="row">
       <div class="col-sm-12">
          <div class="page-header">
-            <h2>Perú</h2>
+            <h1>
+               <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+               Perú
+               <a href="{$fsc->url()}" class="btn btn-xs btn-default">
+                  <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+               </a>
+            </h1>
+            <p class="help-block">
+               Este plugin está en desarrollo. Por ahora se ha añadido el <b>Plan contable de Perú</b>
+               para que puedas importarlo en los ejercicios. Pruébalo ;-)
+            </p>
          </div>
-         <p>
-            Este plugin está en desarrollo. Por ahora se ha añadido el <b>Plan contable de Perú</b>
-            para que puedas importarlo en los ejercicios. Pruébalo ;-)
-         </p>
       </div>
    </div>
-   <div class="row">
+   <div class="row" style="margin-bottom: 10px;">
       <div class="col-sm-6">
          <a href="{$fsc->url()}&opcion=moneda" class="btn btn-block btn-default">
+            <span class="badge">1</span>
             Establecer PEN como moneda por defecto
          </a>
       </div>
       <div class="col-sm-6">
          <a href="{$fsc->url()}&opcion=pais" class="btn btn-block btn-default">
+            <span class="badge">2</span>
             Establecer Perú como pais por defecto
+         </a>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-6">
+         <a href="{$fsc->url()}&opcion=impuestos" class="btn btn-block btn-default">
+            <span class="badge">3</span>
+            Establecer impuestos de Perú
          </a>
       </div>
    </div>
