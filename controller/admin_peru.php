@@ -87,10 +87,10 @@ class admin_peru extends fs_controller
                $imp->delete();
             }
             
-            /// añadimos el IGV 18%
+            /// añadimos el IGV 17%
             $impuesto->codimpuesto = 'IGV';
-            $impuesto->descripcion = 'IGV 18%';
-            $impuesto->iva = 18;
+            $impuesto->descripcion = 'IGV 17%';
+            $impuesto->iva = 17;
             $impuesto->save();
             
             $this->new_message('Impuestos modificados correctamente.');
